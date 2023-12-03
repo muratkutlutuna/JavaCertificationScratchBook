@@ -17,7 +17,7 @@ public class Scratch00 {
         System.out.println("trim = " + trim);
         System.out.println("trim.equals(\"\") = " + trim.equals(""));
         System.out.println("trim.isEmpty() = " + trim.isEmpty());
-        System.out.println("trim.isBlank() = " + trim.isBlank());
+//        System.out.println("trim.isBlank() = " + trim.isBlank());
         int inticer = 8;
         inticer++;
         char ch = 7;
@@ -77,7 +77,7 @@ public class Scratch00 {
         double y1 = 203.22;
 //        float fii=Float.intBitsToFloat(y1);
 
-        var s  = 3;
+//        var s  = 3;
 
         byte []arrr = new byte[0];
 //        System.out.println(arrr[0]);
