@@ -3,4 +3,6 @@ module checkout {
     requires notificationservice;
 
     exports com.checkout;
+
+    uses com.notificationservice.NotificationService;
 }
