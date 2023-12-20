@@ -1,0 +1,27 @@
+## COMPILE MODULES
+
+# bookapi
+javac -d bookapi/bin bookapi/src/module-info.java bookapi/src/com/bookapi/*.java
+
+# inventory
+javac --module-path bookapi/bin:reports/bin -d inventory/bin inventory/src/module-info.java inventory/src/com/inventory/*.java
+
+# reports
+javac --module-path bookapi/bin;inventory/bin -d reports/bin reports/src/module-info.java reports/src/com/reports/*.java
+
+# notificationservice
+javac -d notificationservice/bin notificationservice/src/module-info.java notificationservice/src/com/notificationservice/*.java
+
+# emailnotification
+javac --module-path notificationservice/bin -d emailnotification/bin emailnotification/src/module-info.java emailnotification/src/com/emailnotification/*.java
+
+# checkout
+javac --module-path bookapi/bin:inventory/bin:notificationservice/bin:emailnotification/bin -d checkout/bin checkout/src/module-info.java checkout/src/com/checkout/*.java
+
+# app
+javac --module-path checkout/bin;reports/bin -d app/bin app/src/module-info.java app/src/com/app/*.java
+
+## RUNNING THE APPLICATION USING bin
+java --module-path bookapi/bin;inventory/bin;checkout/bin;app/bin;reports/bin;notificationservice/bin;emailnotification/bin
+
+### in windows we use ";", but in linux and mac we use ":"
