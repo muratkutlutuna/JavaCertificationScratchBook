@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="bookapi" />
     <orderEntry type="module" module-name="notificationservice" />
+    <orderEntry type="module" module-name="inventory" />
   </component>
 </module>

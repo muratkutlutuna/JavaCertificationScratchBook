@@ -4,10 +4,10 @@
 javac -d bookapi/bin bookapi/src/module-info.java bookapi/src/com/bookapi/*.java
 
 # inventory
-javac --module-path bookapi/bin:reports/bin -d inventory/bin inventory/src/module-info.java inventory/src/com/inventory/*.java
+javac --module-path "bookapi/bin;reports/bin" -d inventory/bin inventory/src/module-info.java inventory/src/com/inventory/*.java
 
 # reports
-javac --module-path bookapi/bin;inventory/bin -d reports/bin reports/src/module-info.java reports/src/com/reports/*.java
+javac --module-path "bookapi/bin;inventory/bin" -d reports/bin reports/src/module-info.java reports/src/com/reports/*.java
 
 # notificationservice
 javac -d notificationservice/bin notificationservice/src/module-info.java notificationservice/src/com/notificationservice/*.java
@@ -16,12 +16,15 @@ javac -d notificationservice/bin notificationservice/src/module-info.java notifi
 javac --module-path notificationservice/bin -d emailnotification/bin emailnotification/src/module-info.java emailnotification/src/com/emailnotification/*.java
 
 # checkout
-javac --module-path bookapi/bin:inventory/bin:notificationservice/bin:emailnotification/bin -d checkout/bin checkout/src/module-info.java checkout/src/com/checkout/*.java
+javac --module-path "bookapi/bin;inventory/bin;notificationservice/bin;emailnotification/bin" -d checkout/bin checkout/src/module-info.java checkout/src/com/checkout/*.java
 
 # app
-javac --module-path checkout/bin;reports/bin -d app/bin app/src/module-info.java app/src/com/app/*.java
+javac --module-path "checkout/bin;reports/bin" -d app/bin app/src/module-info.java app/src/com/app/*.java
 
 ## RUNNING THE APPLICATION USING bin
-java --module-path bookapi/bin;inventory/bin;checkout/bin;app/bin;reports/bin;notificationservice/bin;emailnotification/bin
+java --module-path "bookapi/bin;inventory/bin;checkout/bin;app/bin;reports/bin;notificationservice/bin;emailnotification/bin" --module app/com.app.LibraryApp
 
-### in windows we use ";", but in linux and mac we use ":"
+### in windows we use ";", but in linux and mac we use ":",
+### and also we encircle the multiple bin paths with double quote at windows
+#### --module-path ==> -p
+#### --module ==> -m
